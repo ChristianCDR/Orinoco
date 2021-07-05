@@ -1,0 +1,15 @@
+@import "myvariables.scss";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  height: 90px;
+  font-size:1.5em;
+  svg{
+    max-width:150px;
+  }
+  p{
+    margin-top:15px;
+  }
+}
