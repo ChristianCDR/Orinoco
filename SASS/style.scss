@@ -1,8 +1,10 @@
 @import "myvariables.scss";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
-.navbar{
+.navbar, .description-items{
   display:flex;
+}
+.navbar{
   justify-content:space-between;
   height: 90px;
   font-size:1.5em;
@@ -14,19 +16,35 @@
     margin-top:15px;
   }
 }
+
 h1{
   margin-top: 25px;
 }
+i{
+  margin: 14px auto;
+  &+p{
+    margin: 10px 0;
+    font-weight: bolder;
+  }
+}
+
 main{
   margin: 50px;
-  border: 2px solid green;
+  border: 2px solid $gray-600;
   .div__img{
-    height:350px;
+    height:400px;
     margin: 20px auto;
+    padding: 5px;
     
     .div__img5{
-      border: 1px solid red;
+      border: 1px solid peachpuff;
       height: 235px;
+    }
+    span{
+      text-transform: uppercase;
+      display: block;
+      margin: 10px 0;
+      font-weight: bolder;
     }
   }
 }
@@ -36,7 +54,6 @@ footer{
 }
 @media screen and (max-width: 575.99px){
   .div__img div{
-    border: 1px solid peachpuff;
     height: 250px;
   }
   img{

@@ -10746,8 +10746,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.navbar {
+.navbar, .description-items {
   display: flex;
+}
+
+.navbar {
   justify-content: space-between;
   height: 90px;
   font-size: 1.5em;
@@ -10764,17 +10767,32 @@ h1, .h1 {
   margin-top: 25px;
 }
 
+i {
+  margin: 14px auto;
+}
+i + p {
+  margin: 10px 0;
+  font-weight: bolder;
+}
+
 main {
   margin: 50px;
-  border: 2px solid green;
+  border: 2px solid #6c757d;
 }
 main .div__img {
-  height: 350px;
+  height: 400px;
   margin: 20px auto;
+  padding: 5px;
 }
 main .div__img .div__img5 {
-  border: 1px solid red;
+  border: 1px solid peachpuff;
   height: 235px;
+}
+main .div__img span {
+  text-transform: uppercase;
+  display: block;
+  margin: 10px 0;
+  font-weight: bolder;
 }
 
 footer {
@@ -10784,7 +10802,6 @@ footer {
 
 @media screen and (max-width: 575.99px) {
   .div__img div {
-    border: 1px solid peachpuff;
     height: 250px;
   }
 
