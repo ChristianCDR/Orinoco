@@ -1,6 +1,11 @@
 @import "myvariables.scss";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
+
+body{
+  font-family: 'Raleway', sans-serif;
+}
+
 .navbar, .description-items, .list-inline, footer{
   display:flex;
 }
@@ -18,13 +23,13 @@
 }
 
 h1{
-  margin-top: 25px;
+  margin-top: 40px;
 }
 i{
   margin: 14px auto;
   &+p{
     margin: 10px 0;
-    font-weight: bolder;
+    font-weight: bold;
   }
 }
 
@@ -38,13 +43,18 @@ main{
     
     .div__img5{
       border: 1px solid peachpuff;
-      height: 235px;
+      min-height: 215px;
     }
+    
+  img{
+    object-fit: cover;
+    height:250px;
+  }
     span{
       text-transform: uppercase;
       display: block;
       margin: 10px 0;
-      font-weight: bolder;
+      font-weight: bold;
     }
   }
 }
@@ -57,7 +67,7 @@ footer{
   }
   .footer__secondrow{
     border: 1px solid white;
-    width:90%;
+    width:80%;
     margin:auto;
     padding-left: 4.5%;
     .list-inline-item{
@@ -69,9 +79,19 @@ footer{
   .div__img div{
     height: 250px;
   }
-  img{
-    object-fit: cover;
-    height:250px;
+  div .div__img .div__img5{
+    min-height: 250px;
+  }
+}
+@media screen and (min-width: 992px) and (max-width:1200px){
+  div .div__img .div__img5{
+      min-height: 250px;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width:767.99px){
+  .div__img{
+    min-height: 20em;
   }
 }
 @media screen and (max-width: 768px){
@@ -86,10 +106,5 @@ footer{
         margin: 20px;
       }
     }
-  }
-}
-@media screen and (min-width: 576px) and (max-width:768px){
-  .div__img{
-    min-height: 30em;
   }
 }
