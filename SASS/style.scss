@@ -19,13 +19,34 @@ h1{
 }
 main{
   margin: 50px;
-  height: 50em;
   border: 2px solid green;
   .div__img{
     height:350px;
     margin: 20px auto;
+    
+    .div__img5{
+      border: 1px solid red;
+      height: 235px;
+    }
   }
 }
 footer{
   height: 100px;
+  position: relative;
+}
+@media screen and (max-width: 575.99px){
+  .div__img div{
+    border: 1px solid peachpuff;
+    height: 250px;
+  }
+  img{
+    object-fit: cover;
+    height:250px;
+  }
+
+}
+@media screen and (min-width: 576px) and (max-width:768px){
+  .div__img{
+    min-height: 30em;
+  }
 }
