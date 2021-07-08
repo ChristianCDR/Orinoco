@@ -10754,6 +10754,14 @@ body {
   display: flex;
 }
 
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+.navbar, .description-items, .list-inline, footer {
+  display: flex;
+}
+
 .navbar {
   justify-content: space-between;
   height: 90px;

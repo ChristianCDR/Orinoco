@@ -10746,6 +10746,14 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+.navbar, .description-items, .list-inline, footer {
+  display: flex;
+}
+
 .navbar {
   justify-content: space-between;
   height: 90px;
@@ -10791,8 +10799,40 @@ footer .footer__secondrow .list-inline-item {
     margin: 20px;
   }
 }
+.card, .card-body, .rating {
+  display: flex;
+}
+
 main {
   margin: 30px auto;
+  height: 420px;
+  border: 2px solid #6c757d;
+  padding: 10px 0;
+}
+main .card {
+  margin: 0;
+  border: none;
+  flex-direction: row;
+  justify-content: space-between;
+}
+main .card-body {
+  flex-direction: column;
+  justify-content: space-around;
+}
+main img {
+  max-width: 550px;
+  height: 390px;
+  object-fit: cover;
+}
+main a {
+  margin: 0 20px;
+}
+main .rating {
+  width: 40%;
+  margin: 0 auto;
+}
+main i {
+  margin: 0 15px;
 }
 
 /*# sourceMappingURL=produit.css.map */

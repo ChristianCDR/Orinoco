@@ -2,6 +2,37 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "layout/header.scss";
 @import "layout/footer.scss";
+.card, .card-body, .rating{
+  display: flex;
+}
 main{
   margin: 30px auto;
+  height: 420px;
+  border: 2px solid $gray-600;
+  padding: 10px 0;
+  .card{
+    margin:0;
+    border: none;
+    flex-direction: row;
+    justify-content: space-between;
+    &-body{
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  }
+  img{
+    max-width: 550px;
+    height:390px;
+    object-fit: cover;
+  }
+  a{
+    margin: 0 20px;
+  }
+  .rating{
+    width: 40%;
+    margin: 0 auto;
+  }
+  i{
+    margin: 0 15px;
+  }
 }
