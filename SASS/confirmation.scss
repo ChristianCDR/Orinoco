@@ -1,0 +1,20 @@
+@import "myvariables.scss";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "layout/header.scss";
+@import "layout/footer.scss";
+main{
+  height: 300px;
+  margin: 30px 0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  p,span{
+    font-size: 1.5em;
+  }
+  button{
+    width: 50%;
+    margin:0 auto;
+  }
+
+}
