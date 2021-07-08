@@ -10828,11 +10828,23 @@ main a {
   margin: 0 20px;
 }
 main .rating {
-  width: 40%;
+  width: 235px;
   margin: 0 auto;
 }
 main i {
   margin: 0 15px;
+}
+
+@media screen and (max-width: 576px) {
+  main {
+    height: auto;
+  }
+  main .card {
+    flex-direction: column;
+  }
+  main .card-body * {
+    margin: 5px auto;
+  }
 }
 
 /*# sourceMappingURL=produit.css.map */
