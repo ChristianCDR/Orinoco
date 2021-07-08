@@ -1,0 +1,7 @@
+@import "myvariables.scss";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "layout/header.scss";
+@import "layout/footer.scss";
+main{
+  margin: 30px auto;
+}

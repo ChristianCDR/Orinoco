@@ -1,0 +1,34 @@
+footer {
+  height: 200px;
+  padding: 20px 0;
+  flex-direction: column;
+}
+footer .footer__firstrow {
+  justify-content: space-around;
+}
+footer .footer__secondrow {
+  border: 1px solid white;
+  width: 80%;
+  margin: auto;
+  padding-left: 4.5%;
+}
+footer .footer__secondrow .list-inline-item {
+  margin: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    flex-direction: row;
+    justify-content: space-around;
+    height: 400px;
+  }
+  footer .footer__firstrow, footer .footer__secondrow {
+    flex-direction: column;
+    width: 100%;
+  }
+  footer .footer__firstrow .list-inline-item, footer .footer__secondrow .list-inline-item {
+    margin: 20px;
+  }
+}
+
+/*# sourceMappingURL=footer.css.map */

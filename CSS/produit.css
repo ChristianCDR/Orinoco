@@ -10746,14 +10746,6 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-body {
-  font-family: "Raleway", sans-serif;
-}
-
-.navbar, .description-items, .list-inline, footer {
-  display: flex;
-}
-
 .navbar {
   justify-content: space-between;
   height: 90px;
@@ -10765,42 +10757,6 @@ body {
 }
 .navbar p {
   margin-top: 15px;
-}
-
-h1, .h1 {
-  margin-top: 40px;
-}
-
-i {
-  margin: 14px auto;
-}
-i + p {
-  margin: 10px 0;
-  font-weight: bold;
-}
-
-main {
-  margin: 50px;
-  border: 2px solid #6c757d;
-}
-main .div__img {
-  height: 400px;
-  margin: 20px auto;
-  padding: 5px;
-}
-main .div__img .div__img5 {
-  border: 1px solid peachpuff;
-  min-height: 215px;
-}
-main .div__img img {
-  object-fit: cover;
-  height: 250px;
-}
-main .div__img span {
-  text-transform: uppercase;
-  display: block;
-  margin: 10px 0;
-  font-weight: bold;
 }
 
 footer {
@@ -10835,24 +10791,8 @@ footer .footer__secondrow .list-inline-item {
     margin: 20px;
   }
 }
-@media screen and (max-width: 575.99px) {
-  .div__img div {
-    height: 250px;
-  }
-
-  div .div__img .div__img5 {
-    min-height: 250px;
-  }
-}
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-  div .div__img .div__img5 {
-    min-height: 250px;
-  }
-}
-@media screen and (min-width: 576px) and (max-width: 767.99px) {
-  .div__img {
-    min-height: 20em;
-  }
+main {
+  margin: 30px auto;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=produit.css.map */
