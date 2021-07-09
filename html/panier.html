@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../CSS/produit.css">
+  <link rel="stylesheet" href="../CSS/panier.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
 
-  <title>VCAM_1</title>
+  <title>Votre panier</title>
 </head>
 <body>
   <header class="container-fluid bg-secondary">
@@ -89,41 +89,36 @@ c-3 -8 -6 -5 -6 6 -1 11 2 17 5 13 3 -3 4 -12 1 -19z m6 -85 c4 -19 2 -33 -3
 </g>
         </svg>
       </a>
-      <a href="panier.html" class="text-white ">Panier</a>
+      <a href="../index.html" class="text-white ">Accueil</a>
     </nav>
   </header>
-  <main class="container rounded bg-secondary">
-    <div class="row">
-      <div class="col">
-        <div class="card bg-secondary">
-          <img class="card-img-top rounded" src="../images/vcam_1.jpg" alt="photo de la première caméra" >
-          <div class="card-body bg-secondary text-white text-center">
-
-            <h1>VCAM_1</h1>
-
-            <div class="rating">
-              <i class="fas fa-thumbs-up text-white"> </i>
-              <i class="fas fa-thumbs-up text-white"> </i>
-              <i class="fas fa-thumbs-up text-white"> </i>
-              <i class="fas fa-thumbs-up text-white"> </i>
-              <i class="fas fa-thumbs-up text-white"> </i>
-            </div>
-            <span> Note Moyenne: 4.5/5</span>
-
-            <p>
-               <a href="#" class="text-white">30 Avis de consommateurs </a>-<a href="#" class="text-white">  32 produits en stock</a>
-            </p>
-
-            <a role="button" class="btn rounded bg-info text-white" href="panier.html"> Ajouter au panier </a>
-
-         </div>
-      
-        </div>
+  <main class="container rounded">
+    <div class="row rounded">
+      <div class="col recap">
+        <h1 class="text-center">Recapitulatif</h1>
+        <h2>Produit:</h2>
+        <h2>Quantité:</h2>
+        <h2>Prix:</h2>
+        <h2>Total:</h2>
 
       </div>
-
     </div>
+    <div class="row rounded">
+      <div class="col">
 
+        <form method="POST" action="#">
+          <label for="nom">Nom</label><input type="text"  name="nom" id="nom" placeholder="Exemple: Jean">
+          <label for="prenom">Prenom</label><input type="text"  name="prenom" id="prenom" placeholder="Exemple: Dupont">
+          <label for="email">Mail</label><input type="email" name="email" id="email" placeholder="Exemple: jeandupont@gmail.com">
+          <label for="adresse">Adresse</label><input type="text"  name="adresse" id="adresse" placeholder="Exemple: 3 Avenue du Château">
+          <label for="code_postal">Code Postal</label><input type="number"name="code_postal" id="code_postal" placeholder="Exemple: 67300">
+          <label for="ville">Ville</label><input type="text"  name="ville" id="ville" placeholder="Exemple: Vic-en-Bigorre">
+        </form>
+        
+        <a role="button" type="submit" class="btn rounded bg-info text-white" href="confirmation.html"> Payer votre commande </a>
+        
+      </div>
+    </div>
   </main>
   <footer class="container-fluid bg-secondary">
     <div class="row">

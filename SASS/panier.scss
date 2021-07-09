@@ -1,0 +1,45 @@
+@import "myvariables.scss";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "layout/header.scss";
+@import "layout/footer.scss";
+
+main, form, .recap{
+  display: flex;
+}
+
+main{
+  margin: 30px auto;
+  border: 3px solid $gray-600;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .row{
+    width: 50%;
+    height: 500px;
+    border:3px solid $gray-600;
+    margin: 15px;
+    word-wrap: break-word;
+  }
+  form, .recap{
+    flex-direction: column;
+    height: 450px;
+    justify-content: space-around;
+  }
+  h1, h2{
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .btn{
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 768px){
+  main{
+    flex-direction: column;
+    .row{
+      width: 95%;
+      margin: 15px auto;
+    }
+  }
+}

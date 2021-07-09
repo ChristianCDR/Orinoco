@@ -10799,20 +10799,45 @@ footer .footer__secondrow .list-inline-item {
     margin: 20px;
   }
 }
-main {
-  height: 300px;
-  margin: 30px 0;
-  border-radius: 10px;
+main, form, .recap {
   display: flex;
-  flex-direction: column;
+}
+
+main {
+  margin: 30px auto;
+  border: 3px solid #6c757d;
+  flex-direction: row;
   justify-content: space-around;
 }
-main p, main span {
-  font-size: 1.5em;
+main .row {
+  width: 50%;
+  height: 500px;
+  border: 3px solid #6c757d;
+  margin: 15px;
+  word-wrap: break-word;
 }
-main a {
-  width: 40%;
+main form, main .recap {
+  flex-direction: column;
+  height: 450px;
+  justify-content: space-around;
+}
+main h1, main .h1, main h2, main .h2 {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+main .btn {
+  display: block;
   margin: 0 auto;
 }
 
-/*# sourceMappingURL=confirmation.css.map */
+@media screen and (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  main .row {
+    width: 95%;
+    margin: 15px auto;
+  }
+}
+
+/*# sourceMappingURL=panier.css.map */

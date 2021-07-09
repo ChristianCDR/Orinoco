@@ -10771,7 +10771,7 @@ body {
 .navbar svg {
   max-width: 150px;
 }
-.navbar p {
+.navbar a {
   margin-top: 15px;
 }
 
