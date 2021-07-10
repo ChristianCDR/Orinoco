@@ -10818,16 +10818,12 @@ main .row {
 }
 main form, main .recap {
   flex-direction: column;
-  height: 450px;
+  height: 490px;
   justify-content: space-around;
 }
 main h1, main .h1, main h2, main .h2 {
   font-size: 1.2em;
   font-weight: bold;
-}
-main .btn {
-  display: block;
-  margin: 0 auto;
 }
 
 @media screen and (max-width: 768px) {
