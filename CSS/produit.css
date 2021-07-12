@@ -10843,6 +10843,9 @@ main .lens img {
   height: 100px;
   margin-bottom: 5px;
 }
+main .lens img:hover {
+  border: 2px solid blue;
+}
 
 @media screen and (max-width: 576px) {
   main {

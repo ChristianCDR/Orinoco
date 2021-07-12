@@ -34,7 +34,6 @@ fetch("http://localhost:3000/api/cameras") //requête à l'api
   })
 
   let id_produit = (window.location.search).slice(1);
-  console.log(id_produit);
 
   fetch(`http://localhost:3000/api/cameras/${id_produit}`)
   .then(function(secondResultat){
@@ -50,23 +49,30 @@ fetch("http://localhost:3000/api/cameras") //requête à l'api
         image_parent.prepend(image);
     let image_title = document.querySelector('.card-title');
         image_title.innerHTML=`${secondValeur.name}`;
-    
-
-    })
-  .catch(function(secondError){
-    console.log(secondError);
-  })
 
     let lens= document.querySelector('.lens');
-    let firstlens= document.createElement('div');
+    let firstlens = document.createElement('div');
     let secondlens= document.createElement('div');
 
 switch(id_produit){
   case "5be1ed3f1c9d44000030b061":
-        firstlens.innerHTML=`<img src="../images/Lens_35mm_1.4.jpg" alt="Lentille" >`;
-        secondlens.innerHTML=`<img src="../images/Lens_50mm_1.6.jpg" alt="Lentille" >`;
+        firstlens.innerHTML=`<img class="lentille1" src="../images/Lens_35mm_1.4.jpg" alt="Lentille">`;
+        secondlens.innerHTML=`<img class="lentille2" src="../images/Lens_50mm_1.6.jpg" alt="Lentille">`;
         lens.appendChild(firstlens);
         lens.appendChild(secondlens);
+
+        let lens_class1= document.querySelector(".lentille1");
+            lens_class1.addEventListener('click', function(){
+            lens_class1.style.border="medium solid blue";
+            console.log(secondValeur.lenses[0]);
+
+        });
+        lens_class2= document.querySelector(".lentille2");
+        lens_class2.addEventListener('click', function(){
+          lens_class2.style.border="medium solid blue";
+          console.log(secondValeur.lenses[1]);
+        })
+
   break;
   case "5be1ef211c9d44000030b062":
         firstlens.innerHTML=`<img src="../images/Lens_35mm_1.4.jpg" alt="Lentille" >`;
@@ -93,4 +99,7 @@ switch(id_produit){
         lens.appendChild(secondlens);
   default: console.log("Pas de lentilles disponibles");
 }
-  
+})
+.catch(function(secondError){
+  console.log(secondError);
+})
