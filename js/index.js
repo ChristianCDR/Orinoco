@@ -32,29 +32,65 @@ fetch("http://localhost:3000/api/cameras") //requête à l'api
   .catch(function(error){
     console.log(error);
   })
-  let url_produit = (window.location.search).slice(1);
-  console.log(url_produit);
-  fetch(`http://localhost:3000/api/cameras/${url_produit}`)
+
+  let id_produit = (window.location.search).slice(1);
+  console.log(id_produit);
+
+  fetch(`http://localhost:3000/api/cameras/${id_produit}`)
   .then(function(secondResultat){
     if (secondResultat.ok){
       return secondResultat.json();
     }
   })
   .then(function(secondValeur){
-    console.log(secondValeur);
     let image_parent = document.querySelector('.img-parent');
     let image= document.createElement('div');
-      image.innerHTML=`<img class="card-img-top rounded" src="${secondValeur.imageUrl}" alt="photo de la caméra" >`;
-      console.log(image.innerHTML);
-      image_parent.prepend(image);
+        image.innerHTML=
+        `<img class="card-img-top rounded" src="${secondValeur.imageUrl}" alt="photo de la caméra" >`;
+        image_parent.prepend(image);
     let image_title = document.querySelector('.card-title');
-    console.log(image_title);
-    image_title.innerHTML=`${secondValeur.name}`;
-
+        image_title.innerHTML=`${secondValeur.name}`;
+    
 
     })
   .catch(function(secondError){
     console.log(secondError);
   })
 
+    let lens= document.querySelector('.lens');
+    let firstlens= document.createElement('div');
+    let secondlens= document.createElement('div');
+
+switch(id_produit){
+  case "5be1ed3f1c9d44000030b061":
+        firstlens.innerHTML=`<img src="../images/Lens_35mm_1.4.jpg" alt="Lentille" >`;
+        secondlens.innerHTML=`<img src="../images/Lens_50mm_1.6.jpg" alt="Lentille" >`;
+        lens.appendChild(firstlens);
+        lens.appendChild(secondlens);
+  break;
+  case "5be1ef211c9d44000030b062":
+        firstlens.innerHTML=`<img src="../images/Lens_35mm_1.4.jpg" alt="Lentille" >`;
+        secondlens.innerHTML=`<img src="../images/Lens_50mm_1.6.jpg" alt="Lentille" >`;
+        lens.appendChild(firstlens);
+        lens.appendChild(secondlens);
+  break;
+  case "5be9bc241c9d440000a730e7":
+        firstlens.innerHTML=`<img src="../images/Lens_35mm_1.4.jpg" alt="Lentille" >`;
+        secondlens.innerHTML=`<img src="../images/Lens_50mm_1.6.jpg" alt="Lentille" >`;
+        lens.appendChild(firstlens);
+        lens.appendChild(secondlens);
+  break;
+  case "5be9c4471c9d440000a730e8":
+        firstlens.innerHTML=`<img src="../images/Lens_35mm_1.4.jpg" alt="Lentille" >`;
+        secondlens.innerHTML=`<img src="../images/Lens_50mm_1.6.jpg" alt="Lentille" >`;
+        lens.appendChild(firstlens);
+        lens.appendChild(secondlens);
+  break;
+  case "5be9c4c71c9d440000a730e9":
+        firstlens.innerHTML=`<img src="../images/Lens_35mm_1.4.jpg" alt="Lentille" >`;
+        secondlens.innerHTML=`<img src="../images/Lens_50mm_1.6.jpg" alt="Lentille" >`;
+        lens.appendChild(firstlens);
+        lens.appendChild(secondlens);
+  default: console.log("Pas de lentilles disponibles");
+}
   
