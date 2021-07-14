@@ -39,7 +39,20 @@ let id_produit = (window.location.search).slice(1);
       quantite: 1,
       prix:`${secondValeur.price/100}$`
     };
-      console.log(selectedItem.prix);
+    let envoyerPanier=document.querySelector('button.btn');
+    envoyerPanier.addEventListener('click', function(){
+      let produitsStockes= JSON.parse(localStorage.getItem("selectedItemTab"));
+      if(produitsStockes){
+        produitsStockes.push(selectedItem);
+        console.log(selectedItem);
+        localStorage.setItem("produitsStockes",JSON.stringify(produitsStockes));
+      }
+      else{
+         produitsStockes=[];
+         produitsStockes.push(selectedItem);
+         localStorage.setItem("produitsStockes",JSON.stringify(produitsStockes));
+      }
+    })     
   })
 .catch(function(secondError){
   console.log(secondError);
