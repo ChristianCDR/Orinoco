@@ -1,4 +1,4 @@
-  let id_produit = (window.location.search).slice(1);
+let id_produit = (window.location.search).slice(1);
 
   fetch(`http://localhost:3000/api/cameras/${id_produit}`)
   .then(function(secondResultat){
@@ -29,7 +29,8 @@
           console.log(secondValeur.lenses[i]);
           });
     }
-    
+    let lien =document.querySelector('.link')
+    .innerHTML=`<a role="button" class="btn rounded bg-info text-white" href="panier.html?${id_produit}&${secondValeur.lenses.length}"> Ajout au panier </a>`;
   })
 .catch(function(secondError){
   console.log(secondError);
