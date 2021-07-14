@@ -16,21 +16,30 @@ let id_produit = (window.location.search).slice(1);
         image_title.innerHTML=`${secondValeur.name}`;
 
     let lens= document.querySelector('.lens');
-    let lens_class=0;
+    let selectedLens=[];
     for (let i=0; i<secondValeur.lenses.length; i++){
           let lens_image=document.createElement('div');
           lens_image.innerHTML=`<img class="lentille${i}" src="../images/Lens_35mm_1.4.jpg" alt="Lentille">`;
           lens.appendChild(lens_image);
                 
           let listenLensClass =document.querySelector(`.lentille${i}`);
-          console.log(listenLensClass);
           listenLensClass.addEventListener('click', function(){
           listenLensClass.style.border="medium solid blue";
-          console.log(secondValeur.lenses[i]);
+          selectedLens.push(secondValeur.lenses[i]);
+          return selectedLens;
           });
     }
+
     let lien =document.querySelector('.link')
-    .innerHTML=`<a role="button" class="btn rounded bg-info text-white" href="panier.html?${id_produit}&${secondValeur.lenses.length}"> Ajout au panier </a>`;
+    .innerHTML=`<a href="panier.html?${id_produit}&${secondValeur.lenses.length}" class="text-white link">Panier</a>`;
+
+    let selectedItem={
+      produit:`${secondValeur.name}`,
+      lentilles: selectedLens,
+      quantite: 1,
+      prix:`${secondValeur.price/100}$`
+    };
+      console.log(selectedItem.prix);
   })
 .catch(function(secondError){
   console.log(secondError);
