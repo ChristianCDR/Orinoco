@@ -34,11 +34,11 @@ let id_produit = (window.location.search).slice(1);
       produit:`${secondValeur.name}`,
       lentilles: selectedLens,
       quantite: 1,
-      prix:`${secondValeur.price/100}$`
+      prix:`${secondValeur.price/100}`
     };
     let envoyerPanier=document.querySelector('button.btn');  
     envoyerPanier.addEventListener('click', function(){
-      //localStorage.clear();
+      
      let selectedItemTab= JSON.parse(localStorage.getItem("selectedItemTab"));
       if(selectedItemTab){
         selectedItemTab.push(selectedItem);
