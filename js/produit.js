@@ -30,9 +30,6 @@ let id_produit = (window.location.search).slice(1);
           });
     }
 
-    let lien =document.querySelector('.link')
-    .innerHTML=`<a href="panier.html?${id_produit}&${secondValeur.lenses.length}" class="text-white link">Panier</a>`;
-
     let selectedItem={
       produit:`${secondValeur.name}`,
       lentilles: selectedLens,

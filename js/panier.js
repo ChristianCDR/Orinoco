@@ -1,17 +1,32 @@
-/* let lensClassTab=[];
-lensClassTab.push=(`lensClass${i}`);*/
-let id_produit = (window.location.search).slice(1);
-console.log(id_produit);
-  fetch(`http://localhost:3000/api/cameras/${id_produit}`)
-  .then(function(secondResultat){
-    if (secondResultat.ok){
-      return secondResultat.json();
-    }
-  })
-  .then(function(secondValeur){
-    let recapProduit=document.querySelector('.produit');
-    recapProduit.innerHTML=`<h2 class="produit">Produit: ${secondValeur.name}</h2>`;
-  })
-  .catch(function(secondError){
-    console.log(secondError);
-  })
+let recapCommande= JSON.parse(localStorage.getItem("selectedItemTab"));
+console.log(recapCommande);
+let nomProduit= document.querySelector('.produit');
+let lensList=  document.querySelector('.lensList');
+let quantite=document.querySelector('.quantite');
+let prix=document.querySelector('.prix');
+let total=document.querySelector('.total');
+
+for (let i=0; i<recapCommande.length; i++){
+  let recapNomProduit= document.createElement('span');
+  recapNomProduit.innerHTML=` ${recapCommande[i].produit},`;
+  nomProduit.appendChild(recapNomProduit);
+
+  let recapLensList= document.createElement('span');
+  recapLensList.innerHTML=` ${recapCommande[i].lentilles},`;
+  lensList.appendChild(recapLensList);
+
+  let recapQuantite= document.createElement('span');
+  recapQuantite.innerHTML=` ${recapCommande[i].quantite},`;
+  quantite.appendChild(recapQuantite);
+
+  let recapPrix= document.createElement('span');
+  recapPrix.innerHTML=` ${recapCommande[i].prix}, `;
+  prix.appendChild(recapPrix);
+}
+/*let calcultotal=()=>{
+  recapTotal= total.innerHTML+= `<h2 class="total">Total:${recapCommande[i].prix}</h2>`;
+  total.appendChild(recapTotal);
+   console.log('ok');
+   return recapTotal;
+}
+let recapTotal=calcultotal();*/
