@@ -10835,16 +10835,8 @@ main i {
   margin: 0 15px;
 }
 main .lens {
-  width: 100px;
+  width: 200px;
   margin-left: 10px;
-}
-main .lens img {
-  width: 100%;
-  height: 100px;
-  margin-bottom: 5px;
-}
-main .lens img:hover {
-  border: 2px solid blue;
 }
 
 @media screen and (max-width: 576px) {

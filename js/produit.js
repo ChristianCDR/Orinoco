@@ -15,27 +15,28 @@ let id_produit = (window.location.search).slice(1);
     let image_title = document.querySelector('.card-title');
         image_title.innerHTML=`${secondValeur.name}`;
 
-    let lens= document.querySelector('.lens');
-    let selectedLens=[];
-    for (let i=0; i<secondValeur.lenses.length; i++){
-          let lens_image=document.createElement('div');
-          lens_image.innerHTML=`<img class="lentille${i}" src="../images/Lens_35mm_1.4.jpg" alt="Lentille">`;
-          lens.appendChild(lens_image);
-                
-          let listenLensClass =document.querySelector(`.lentille${i}`);
+    let lens= document.querySelector('#lenses');
+        for (let i=0; i<secondValeur.lenses.length; i++){
+          let lensName=document.createElement('option');
+              lensName.setAttribute('value',`${secondValeur.lenses[i]}`);
+              lensName.setAttribute('id',`lentille${i+1}`);
+              lensName.innerHTML=`${secondValeur.lenses[i]}`;
+          lens.appendChild(lensName);
+        }
+    
+    /*let selectedLens=[{cul:'bite'}];    
+    
+          let listenLensClass =document.querySelector(`#lentille${i+1}`);
           listenLensClass.addEventListener('click', function(){
-          listenLensClass.style.border="medium solid blue";
           selectedLens.push(secondValeur.lenses[i]);
           return selectedLens;
-          });
-    }
-
+          });*/
     let selectedItem={
       produit:`${secondValeur.name}`,
-      lentilles: selectedLens,
       quantite: 1,
       prix:`${secondValeur.price/100}`
     };
+    console.log(secondValeur.lenses);
     let envoyerPanier=document.querySelector('button.btn');  
     envoyerPanier.addEventListener('click', function(){
       
@@ -43,11 +44,13 @@ let id_produit = (window.location.search).slice(1);
       if(selectedItemTab){
         selectedItemTab.push(selectedItem);
         localStorage.setItem("selectedItemTab",JSON.stringify(selectedItemTab));
+        //localStorage.setItem("selectedLenses",JSON.stringify(selectedLenses));
       }
       else{
         selectedItemTab=[];
         selectedItemTab.push(selectedItem);
         localStorage.setItem("selectedItemTab",JSON.stringify(selectedItemTab));
+        //localStorage.setItem("selectedLenses",JSON.stringify(selectedLenses));
       }
     })     
   })

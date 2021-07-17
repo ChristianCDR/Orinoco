@@ -40,3 +40,88 @@ for (let i=0; i<recapCommande.length; i++){
   recapPrix.innerHTML=` ${recapCommande[i].prix}$,`;
   prix.appendChild(recapPrix);
 }
+/*let formCreation=document.querySelector('.form__div');
+let formChild= document.createElement('form').innerHTML=" ";
+    formCreation.appendChild(formChild);*/
+
+let request= document.querySelectorAll('input');
+let contact={};
+for(let i=0 ; i<request.length; i++){
+  //console.log(request[i].value);
+    contact={
+    lastName:`${request[0].value}`,
+    firstName:`${request[1].value}`,
+    email:`${request[2].value}`,
+    address:`${request[3].value}`,
+    codePostal:`${request[4].value}`,
+    city:`${request[5].value}`
+  }
+}
+/*let codePostalCheck= document.getElementsByName('codePostal');
+
+    codePostalCheck[0].addEventListener('mouseout',function(value){
+      if(/^[0-9]{5}$/.test(value)){
+        console.log('ok');
+      } 
+      else{
+        console.log('erreur');
+      }
+    });*/
+
+/*let submitButton=document.querySelector('.submit');
+
+    let codePostalCheck= document.getElementsByName('codePostal');
+    let value= codePostalCheck[0].value;
+    submitButton.addEventListener('click',function(value){
+      
+      if(/^[0-9]{5}$/.test(value)){
+        console.log('ok');
+      } 
+      else{
+        console.log('erreur');
+      }
+    });*/
+    console.log(recapCommande);
+    console.log(contact);
+    fetch('http://localhost:3000/api/cameras/order', {
+        method: 'POST',
+        headers: { 
+      'Accept': 'application/json', 
+      'Content-Type': 'application/json' 
+      },
+        body:JSON.stringify(recapCommande, contact),
+      })
+      .then(function(response){
+        if (response.ok){
+          return response.json();
+        }
+      })
+      .then(function(res){
+          console.log(res);
+      })
+      .catch(function(error){
+        console.log(error);
+      });
+
+
+      /*fetch('http://localhost:3000/api/cameras', {
+        method: 'POST',
+        headers: { 
+      'Accept': 'application/json', 
+      'Content-Type': 'application/json' 
+      },
+        body:JSON.stringify(form),
+      })
+      .then(function(zoo){
+        if (zoo.ok){
+          return zoo.json();
+        }
+      })
+      .then(function(zozor){
+          console.log(zozor);
+      })
+      .catch(function(err){
+        console.log(err);
+      });*/
+
+      

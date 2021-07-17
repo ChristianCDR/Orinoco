@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../CSS/panier.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> -->
 
   <script  async src="../js/panier.js"></script>
   <title>Votre panier</title>
@@ -16,7 +16,7 @@
   <header class="container-fluid bg-secondary">
     <nav class="navbar navbar-expand">
       <a class="navbar-brand" href="index.html">
-        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+        <svg xmlns="http://www.w3.org/2000/svg"
  width="300.000000pt" height="135.000000pt" viewBox="0 0 300.000000 135.000000"
  preserveAspectRatio="xMidYMid meet" aria-label="Logo du site">
 <metadata>
@@ -106,19 +106,17 @@ c-3 -8 -6 -5 -6 6 -1 11 2 17 5 13 3 -3 4 -12 1 -19z m6 -85 c4 -19 2 -33 -3
       </div>
     </div>
     <div class="row rounded">
-      <div class="col">
-
-        <form method="POST" action="#">
-          <label for="nom">Nom</label><input type="text"  name="nom" id="nom" placeholder="Exemple: Jean" required>
-          <label for="prenom">Prenom</label><input type="text"  name="prenom" id="prenom" placeholder="Exemple: Dupont" required>
-          <label for="email">Mail</label><input type="email" name="email" id="email" placeholder="Exemple: jeandupont@gmail.com" required>
-          <label for="adresse">Adresse</label><input type="text"  name="adresse" id="adresse" placeholder="Exemple: 3 Avenue du Château" required>
-          <label for="code_postal">Code Postal</label><input type="number"name="code_postal" id="code_postal" placeholder="Exemple: 67300" required>
-          <label for="ville">Ville</label><input type="text"  name="ville" id="ville" placeholder="Exemple: Vic-en-Bigorre" required>
-          <button type="submit" class="btn rounded bg-info text-white"> Payer votre commande </button>
-          <!--Apres la réponse serveur, rediriger vers confirmation.html-->
+      <div class="col form__div">
+              <!-- Here's a form -->
+        <form action="confirmation.html">
+          <label for="nom">Nom</label><input type="text"  name="nom" id="nom" value="Jean" required>
+          <label for="prenom">Prenom</label><input type="text"  name="prenom" id="prenom" value="Dupont" required>
+          <label for="email">Mail</label><input type="email" name="email" id="email" value="jeandupont@gmail.com" required>
+          <label for="adresse">Adresse</label><input type="text"  name="adresse" id="adresse" value="3 Avenue du Château" required>
+          <label for="codePostal">Code Postal</label><input type="number" name="codePostal" id="codePostal" value="67300" required>
+          <label for="ville">Ville</label><input type="text"  name="ville" id="ville" value="Vic-en-Bigorre" required>
+          <button type="submit" class="btn submit rounded bg-info text-white"> Payer votre commande </button> 
         </form>
-
       </div>
     </div>
   </main>
