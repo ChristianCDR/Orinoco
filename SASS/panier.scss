@@ -12,9 +12,7 @@ main{
   border: 3px solid $gray-600;
   flex-direction: row;
   justify-content: space-around;
-
   .row{
-    width: 50%;
     height: 500px;
     border:3px solid $gray-600;
     margin: 15px;
@@ -28,6 +26,13 @@ main{
   h1, h2{
     font-size: 1.2em;
     font-weight: bold;
+  }
+  table{
+    border-collapse: collapse;
+    margin: auto;
+  }
+  td,th{
+    border: 2px solid black;
   }
 }
 @media screen and (max-width: 768px){

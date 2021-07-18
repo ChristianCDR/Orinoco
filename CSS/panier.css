@@ -10810,7 +10810,6 @@ main {
   justify-content: space-around;
 }
 main .row {
-  width: 50%;
   height: 500px;
   border: 3px solid #6c757d;
   margin: 15px;
@@ -10824,6 +10823,13 @@ main form, main .recap {
 main h1, main .h1, main h2, main .h2 {
   font-size: 1.2em;
   font-weight: bold;
+}
+main table {
+  border-collapse: collapse;
+  margin: auto;
+}
+main td, main th {
+  border: 2px solid black;
 }
 
 @media screen and (max-width: 768px) {

@@ -1,4 +1,5 @@
 let id_produit = (window.location.search).slice(1);
+let envoyerPanier=document.querySelector('button.btn');
 
   fetch(`http://localhost:3000/api/cameras/${id_produit}`)
   .then(function(secondResultat){
@@ -23,34 +24,58 @@ let id_produit = (window.location.search).slice(1);
               lensName.innerHTML=`${secondValeur.lenses[i]}`;
           lens.appendChild(lensName);
         }
-    
-    /*let selectedLens=[{cul:'bite'}];    
-    
-          let listenLensClass =document.querySelector(`#lentille${i+1}`);
-          listenLensClass.addEventListener('click', function(){
-          selectedLens.push(secondValeur.lenses[i]);
-          return selectedLens;
-          });*/
+
+    let listenOptions =document.querySelector('#lenses');
+    let selectedLenses=[];
+          listenOptions.addEventListener('change', function(event){
+          confirm('Ajouter cette option?');
+          if(confirm){
+            selectedLenses.push(event.target.value);
+          }
+          else{
+            alert('Option non ajoutée');
+          }
+        });
+       console.log(selectedLenses); 
+        
+    let quantite= document.querySelector('#quantite');
+        quantite.addEventListener('change', function(event){
+          if(/^[0-9]$/.test(event.target.value)){
+            localStorage.setItem("quantité", JSON.stringify(event.target.value)) ;
+          }
+          else{
+            alert('La quantité ne peut pas être négative!');
+          }   
+        });
+        
     let selectedItem={
       produit:`${secondValeur.name}`,
-      quantite: 1,
+      quantite: JSON.parse(localStorage.getItem("quantité")),
       prix:`${secondValeur.price/100}`
     };
-    console.log(secondValeur.lenses);
-    let envoyerPanier=document.querySelector('button.btn');  
+      
     envoyerPanier.addEventListener('click', function(){
       
+      let selectedLensesTab= JSON.parse(localStorage.getItem("selectedLensesTab"));
+      if(selectedLensesTab){
+        selectedLensesTab.push(selectedLenses);
+        localStorage.setItem("selectedLensesTab", JSON.stringify(selectedLensesTab));
+      }
+    else{
+          selectedLensesTab=[];
+          selectedLensesTab.push(selectedLenses);
+          localStorage.setItem("selectedLensesTab", JSON.stringify(selectedLensesTab));
+    } 
+
      let selectedItemTab= JSON.parse(localStorage.getItem("selectedItemTab"));
       if(selectedItemTab){
         selectedItemTab.push(selectedItem);
         localStorage.setItem("selectedItemTab",JSON.stringify(selectedItemTab));
-        //localStorage.setItem("selectedLenses",JSON.stringify(selectedLenses));
       }
       else{
         selectedItemTab=[];
         selectedItemTab.push(selectedItem);
         localStorage.setItem("selectedItemTab",JSON.stringify(selectedItemTab));
-        //localStorage.setItem("selectedLenses",JSON.stringify(selectedLenses));
       }
     })     
   })

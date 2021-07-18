@@ -1,4 +1,5 @@
 let recapCommande= JSON.parse(localStorage.getItem("selectedItemTab"));
+console.log(recapCommande);
 let nomProduit= document.querySelector('.produit');
 let lensList=  document.querySelector('.lensList');
 let quantite=document.querySelector('.quantite');
@@ -23,27 +24,21 @@ for (let i=0; i<tableauDePrix.length-1; i++){
 
 recapCommande.pop(variableNulle);
 
-for (let i=0; i<recapCommande.length; i++){
-  let recapNomProduit= document.createElement('span');
-  recapNomProduit.innerHTML=` ${recapCommande[i].produit},`;
-  nomProduit.appendChild(recapNomProduit);
+let recapLensList= document.createElement('span');
+recapLensList.innerHTML= JSON.parse(localStorage.getItem("choosedLens"));
+lensList.appendChild(recapLensList);
 
-  let recapLensList= document.createElement('span');
-  recapLensList.innerHTML=` ${recapCommande[i].lentilles},`;
-  lensList.appendChild(recapLensList);
-
-  let recapQuantite= document.createElement('span');
-  recapQuantite.innerHTML=` ${recapCommande[i].quantite},`;
-  quantite.appendChild(recapQuantite);
-
-  let recapPrix= document.createElement('span');
-  recapPrix.innerHTML=` ${recapCommande[i].prix}$,`;
-  prix.appendChild(recapPrix);
-}
-/*let formCreation=document.querySelector('.form__div');
-let formChild= document.createElement('form').innerHTML=" ";
-    formCreation.appendChild(formChild);*/
-
+let recapTab=document.querySelector('table');
+  for(let produit of recapCommande){
+    let lignesTab= document.createElement('tr');
+        lignesTab.innerHTML=`<td>${produit.produit}</td>
+        <td>${produit.lentilles}</td>
+        <td>${produit.quantite}</td>
+        <td>${produit.prix}</td>`;
+    recapTab.appendChild(lignesTab);
+    console.log('ok');
+  }
+  
 let request= document.querySelectorAll('input');
 let contact={};
 for(let i=0 ; i<request.length; i++){
@@ -58,8 +53,8 @@ for(let i=0 ; i<request.length; i++){
   }
 }
 /*let codePostalCheck= document.getElementsByName('codePostal');
-
-    codePostalCheck[0].addEventListener('mouseout',function(value){
+console.log(codePostalCheck);
+    codePostalCheck[0].addEventListener('change',function(value){
       if(/^[0-9]{5}$/.test(value)){
         console.log('ok');
       } 
@@ -104,24 +99,6 @@ for(let i=0 ; i<request.length; i++){
       });
 
 
-      /*fetch('http://localhost:3000/api/cameras', {
-        method: 'POST',
-        headers: { 
-      'Accept': 'application/json', 
-      'Content-Type': 'application/json' 
-      },
-        body:JSON.stringify(form),
-      })
-      .then(function(zoo){
-        if (zoo.ok){
-          return zoo.json();
-        }
-      })
-      .then(function(zozor){
-          console.log(zozor);
-      })
-      .catch(function(err){
-        console.log(err);
-      });*/
+ 
 
       
