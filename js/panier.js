@@ -9,8 +9,6 @@ let total=document.querySelector('.total');
 let variableNulle={prix:0};
 recapCommande.push(variableNulle);
 
-// let x= parseFloat(recapCommande[0].prix);
-// let y= parseFloat(recapCommande[i+1].prix);
 let tableauDePrix=[];
 for (let i=0; i<recapCommande.length-1; i++){
     tableauDePrix.push(parseFloat(recapCommande[i].prix));
@@ -24,21 +22,18 @@ for (let i=0; i<tableauDePrix.length-1; i++){
 
 recapCommande.pop(variableNulle);
 
-let recapLensList= document.createElement('span');
-recapLensList.innerHTML= JSON.parse(localStorage.getItem("choosedLens"));
-lensList.appendChild(recapLensList);
-
+let lensTab= JSON.parse(localStorage.getItem("selectedLensesTab"));
 let recapTab=document.querySelector('table');
-  for(let produit of recapCommande){
+
+  for(let i=0; i<recapCommande.length; i++){
     let lignesTab= document.createElement('tr');
-        lignesTab.innerHTML=`<td>${produit.produit}</td>
-        <td>${produit.lentilles}</td>
-        <td>${produit.quantite}</td>
-        <td>${produit.prix}</td>`;
+        lignesTab.innerHTML=`<td>${recapCommande[i].produit}</td>
+        <td>${lensTab[i]}</td>
+        <td>${recapCommande[i].quantite}</td>
+        <td>${recapCommande[i].prix}</td>`;
     recapTab.appendChild(lignesTab);
-    console.log('ok');
   }
-  
+
 let request= document.querySelectorAll('input');
 let contact={};
 for(let i=0 ; i<request.length; i++){
