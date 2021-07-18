@@ -1,9 +1,6 @@
 let recapCommande= JSON.parse(localStorage.getItem("selectedItemTab"));
 console.log(recapCommande);
 let nomProduit= document.querySelector('.produit');
-let lensList=  document.querySelector('.lensList');
-let quantite=document.querySelector('.quantite');
-let prix=document.querySelector('.prix');
 let total=document.querySelector('.total');
 
 let variableNulle={prix:0};
@@ -35,9 +32,27 @@ let recapTab=document.querySelector('table');
   }
 
 let request= document.querySelectorAll('input');
+
+let codePostalCheck= document.getElementsByName('codePostal');
+    codePostalCheck[0].addEventListener('change',function(value){
+       let tonton= localStorage.setItem('codePostal', JSON.stringify(value.target.value));
+    });
+
+let submitButton=document.querySelector('.submit');
+    submitButton.addEventListener('click',function(event){
+      let codePostal= JSON.parse(localStorage.getItem("codePostal"));
+      if(/^[0-9]{5}$/.test(codePostal)){
+        request[4].value=codePostal;
+        console.log('valeur changée');
+      } 
+      else{
+        alert('Le code postal doit être composé de 5 chiffres!');
+        event.preventDefault();
+      }
+    });
+
 let contact={};
 for(let i=0 ; i<request.length; i++){
-  //console.log(request[i].value);
     contact={
     lastName:`${request[0].value}`,
     firstName:`${request[1].value}`,
@@ -47,30 +62,6 @@ for(let i=0 ; i<request.length; i++){
     city:`${request[5].value}`
   }
 }
-/*let codePostalCheck= document.getElementsByName('codePostal');
-console.log(codePostalCheck);
-    codePostalCheck[0].addEventListener('change',function(value){
-      if(/^[0-9]{5}$/.test(value)){
-        console.log('ok');
-      } 
-      else{
-        console.log('erreur');
-      }
-    });*/
-
-/*let submitButton=document.querySelector('.submit');
-
-    let codePostalCheck= document.getElementsByName('codePostal');
-    let value= codePostalCheck[0].value;
-    submitButton.addEventListener('click',function(value){
-      
-      if(/^[0-9]{5}$/.test(value)){
-        console.log('ok');
-      } 
-      else{
-        console.log('erreur');
-      }
-    });*/
     console.log(recapCommande);
     console.log(contact);
     fetch('http://localhost:3000/api/cameras/order', {
