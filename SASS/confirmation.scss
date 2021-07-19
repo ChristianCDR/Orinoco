@@ -2,8 +2,9 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "layout/header.scss";
 @import "layout/footer.scss";
+@import "layout/button.scss";
 main{
-  height: 300px;
+  height: 350px;
   margin: 30px 0;
   border-radius: 10px;
   display: flex;
@@ -12,8 +13,11 @@ main{
   p,span{
     font-size: 1.5em;
   }
-  a{
+  button{
     width: 40%;
     margin:0 auto;
+  }
+  .orderId{
+    font-size: 1.5em;
   }
 }

@@ -10799,8 +10799,12 @@ footer .footer__secondrow .list-inline-item {
     margin: 20px;
   }
 }
+button:hover {
+  border: 5px solid cyan;
+}
+
 main {
-  height: 300px;
+  height: 350px;
   margin: 30px 0;
   border-radius: 10px;
   display: flex;
@@ -10810,9 +10814,12 @@ main {
 main p, main span {
   font-size: 1.5em;
 }
-main a {
+main button {
   width: 40%;
   margin: 0 auto;
+}
+main .orderId {
+  font-size: 1.5em;
 }
 
 /*# sourceMappingURL=confirmation.css.map */

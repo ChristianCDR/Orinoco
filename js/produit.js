@@ -36,24 +36,12 @@ let envoyerPanier=document.querySelector('button.btn');
             alert('Option non ajoutée');
           }
         });
-       console.log(selectedLenses); 
-        
-    let quantite= document.querySelector('#quantite');
-        quantite.addEventListener('change', function(event){
-          if(/^[0-9]$/.test(event.target.value)){
-            localStorage.setItem("quantité", JSON.stringify(event.target.value)) ;
-          }
-          else{
-            alert('La quantité ne peut pas être négative!');
-          }   
-        });
-        
-    let selectedItem={
-      produit:`${secondValeur.name}`,
-      quantite: JSON.parse(localStorage.getItem("quantité")),
-      prix:`${secondValeur.price/100}`
-    };
-      
+             
+        let selectedItem={
+          produit:`${secondValeur.name}`,
+          prix:`${secondValeur.price/100}`
+        };
+
     envoyerPanier.addEventListener('click', function(){
       
       let selectedLensesTab= JSON.parse(localStorage.getItem("selectedLensesTab"));
@@ -88,8 +76,8 @@ let envoyerPanier=document.querySelector('button.btn');
         productIdTab.push(id_produit);
           localStorage.setItem("productIdTab", JSON.stringify(productIdTab));
     } 
-
     })     
+    
   })
 .catch(function(secondError){
   console.log(secondError);
