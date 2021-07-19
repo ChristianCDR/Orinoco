@@ -77,6 +77,18 @@ let envoyerPanier=document.querySelector('button.btn');
         selectedItemTab.push(selectedItem);
         localStorage.setItem("selectedItemTab",JSON.stringify(selectedItemTab));
       }
+
+      let productIdTab= JSON.parse(localStorage.getItem("productIdTab"));
+      if(productIdTab){
+        productIdTab.push(id_produit);
+        localStorage.setItem("productIdTab", JSON.stringify(productIdTab));
+      }
+    else{
+        productIdTab=[];
+        productIdTab.push(id_produit);
+          localStorage.setItem("productIdTab", JSON.stringify(productIdTab));
+    } 
+
     })     
   })
 .catch(function(secondError){

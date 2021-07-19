@@ -1,5 +1,4 @@
 let recapCommande= JSON.parse(localStorage.getItem("selectedItemTab"));
-console.log(recapCommande);
 let nomProduit= document.querySelector('.produit');
 let total=document.querySelector('.total');
 
@@ -27,7 +26,7 @@ let recapTab=document.querySelector('table');
         lignesTab.innerHTML=`<td>${recapCommande[i].produit}</td>
         <td>${lensTab[i]}</td>
         <td>${recapCommande[i].quantite}</td>
-        <td>${recapCommande[i].prix}</td>`;
+        <td>${recapCommande[i].prix}$</td>`;
     recapTab.appendChild(lignesTab);
   }
 
@@ -35,7 +34,7 @@ let request= document.querySelectorAll('input');
 
 let codePostalCheck= document.getElementsByName('codePostal');
     codePostalCheck[0].addEventListener('change',function(value){
-       let tonton= localStorage.setItem('codePostal', JSON.stringify(value.target.value));
+       let codePostal= localStorage.setItem('codePostal', JSON.stringify(value.target.value));
     });
 
 let submitButton=document.querySelector('.submit');
@@ -62,29 +61,30 @@ for(let i=0 ; i<request.length; i++){
     city:`${request[5].value}`
   }
 }
-    console.log(recapCommande);
-    console.log(contact);
+let products= JSON.parse(localStorage.getItem("productIdTab"));
+
     fetch('http://localhost:3000/api/cameras/order', {
         method: 'POST',
         headers: { 
       'Accept': 'application/json', 
       'Content-Type': 'application/json' 
       },
-        body:JSON.stringify(recapCommande, contact),
-      })
-      .then(function(response){
-        if (response.ok){
+        body:JSON.stringify({contact,products}),
+      }).then(response=>{
+        if(response.ok){
           return response.json();
         }
+      }).then(res=>{
+          let contenu = res.orderId;
+          console.log(contenu);
+          
       })
-      .then(function(res){
-          console.log(res);
-      })
-      .catch(function(error){
+      .catch(error=>{
         console.log(error);
-      });
+      })
+     
 
-
+// quantité,correction de la mise de la mise en page, plan de test, pwp
  
 
       
