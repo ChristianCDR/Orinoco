@@ -32,34 +32,40 @@ let recapTab=document.querySelector('table');
   }
 
 let request= document.querySelectorAll('input');
-let contact={};
     for(let i=0; i<request.length; i++){
-      nomDeFamille=request[0].value;
-      prenom=request[1].value;
-      email=request[2].value;
-      adresse=request[3].value;
-      codePostal=request[4].value;
-      ville=request[5].value;
+      request[i].addEventListener('change', (event)=>{
+        contact={
+          lastName:`${request[0].value}`,
+          firstName:`${request[1].value}`,
+          email:`${request[2].value}`,
+          address:`${request[3].value}`,
+          codePostal:`${request[4].value}`,
+          city:`${request[5].value}`
+        }
+        localStorage.setItem('contact', JSON.stringify(contact));
+      }) 
     }
-    contact={
-      lastName:`${nomDeFamille}`,
-      firstName:`${prenom}`,
-      email:`${email}`,
-      address:`${adresse}`,
-      codePostal:`${codePostal}`,
-      city:`${ville}`
-    }
-
+    
 let codePostalCheck= document.getElementsByName('codePostal');
     codePostalCheck[0].addEventListener('change',function(value){
        let codePostal= localStorage.setItem('codePostal', JSON.stringify(value.target.value));
     });
 
     let products= JSON.parse(localStorage.getItem("productIdTab"));
-
+    
 let submitButton=document.querySelector('.submit');
     submitButton.addEventListener('click',function(event){
-      
+
+      let codePostal= JSON.parse(localStorage.getItem("codePostal"));
+      if(/^[0-9]{5}$/.test(codePostal)){
+        request[4].value=codePostal;
+      } 
+      else{
+        alert('Le code postal doit être composé de 5 chiffres!');
+        event.preventDefault();
+      }
+
+      let contact=JSON.parse(localStorage.getItem("contact"));
       fetch('http://localhost:3000/api/cameras/order', {
         method: 'POST',
         headers: { 
@@ -79,17 +85,16 @@ let submitButton=document.querySelector('.submit');
         console.log(error);
       })
 
-      let codePostal= JSON.parse(localStorage.getItem("codePostal"));
-      if(/^[0-9]{5}$/.test(codePostal)){
-        request[4].value=codePostal;
-      } 
-      else{
-        alert('Le code postal doit être composé de 5 chiffres!');
+      if(!JSON.parse(localStorage.getItem("orderId"))){
         event.preventDefault();
       }
+      console.log(event);
     });
 
-// correction de la mise de la mise en page, pwp, plan de test/commentaires
+//correction de la mise de la mise en page, 
+//pwp, 
+//plan de test/commentaires
+//longueur noms/prenoms 
  
 
       

@@ -5,3 +5,5 @@ let orderIdAffichage= document.querySelector('.orderId');
 let prixTotal= JSON.parse(localStorage.getItem("prixTotal"));
 let prixTotalAffichage= document.querySelector('.prixTotal');
     prixTotalAffichage.textContent=prixTotal+'$';
+
+    //localStorage.clear();
