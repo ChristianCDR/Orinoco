@@ -52,10 +52,12 @@ let codePostalCheck= document.getElementsByName('codePostal');
     });
 
     let products= JSON.parse(localStorage.getItem("productIdTab"));
-    
+    let contact=JSON.parse(localStorage.getItem("contact"));
+    let contenu=0;
+
 let submitButton=document.querySelector('.submit');
     submitButton.addEventListener('click',function(event){
-
+      event.preventDefault();
       let codePostal= JSON.parse(localStorage.getItem("codePostal"));
       if(/^[0-9]{5}$/.test(codePostal)){
         request[4].value=codePostal;
@@ -65,12 +67,11 @@ let submitButton=document.querySelector('.submit');
         event.preventDefault();
       }
 
-      let contact=JSON.parse(localStorage.getItem("contact"));
       fetch('http://localhost:3000/api/cameras/order', {
-        method: 'POST',
-        headers: { 
-      'Accept': 'application/json', 
-      'Content-Type': 'application/json' 
+      method: 'POST',
+      headers: { 
+        'Accept': 'application/json', 
+        'Content-Type': 'application/json' 
       },
         body:JSON.stringify({contact,products}),
       }).then(response=>{
@@ -78,19 +79,15 @@ let submitButton=document.querySelector('.submit');
           return response.json();
         }
       }).then(res=>{
-          let contenu = res.orderId;
-          localStorage.setItem("orderId",JSON.stringify(contenu));  
+              contenu=res.orderId;
+              let currentAddress= window.location.search.slice(1);
+              window.location= `confirmation.html?${contenu}`;
       })
       .catch(error=>{
         console.log(error);
       })
-
-      if(!JSON.parse(localStorage.getItem("orderId"))){
-        event.preventDefault();
-      }
-      console.log(event);
-    });
-
+        
+  });
 //correction de la mise de la mise en page, 
 //pwp, 
 //plan de test/commentaires

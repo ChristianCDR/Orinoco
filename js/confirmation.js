@@ -1,4 +1,4 @@
-let orderId= JSON.parse(localStorage.getItem("orderId"));
+let orderId= window.location.search.slice(1);
 let orderIdAffichage= document.querySelector('.orderId');
     orderIdAffichage.textContent=orderId;
 
