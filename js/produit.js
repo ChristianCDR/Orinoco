@@ -1,7 +1,7 @@
-let id_produit = (window.location.search).slice(1);
+let id_produit = (window.location.search).slice(1); //récupere l'id de l'article contenu dans l'url
 let envoyerPanier=document.querySelector('button.btn');
 
-  fetch(`http://localhost:3000/api/cameras/${id_produit}`)
+  fetch(`http://localhost:3000/api/cameras/${id_produit}`)//Récupérer des données sur le bon produit via l'id
   .then(function(secondResultat){
     if (secondResultat.ok){
       return secondResultat.json();
@@ -11,11 +11,12 @@ let envoyerPanier=document.querySelector('button.btn');
     let image_parent = document.querySelector('.img-parent');
     let image= document.createElement('div');
         image.innerHTML=
-        `<img class="card-img-top rounded" src="${secondValeur.imageUrl}" alt="photo de la caméra" >`;
-        image_parent.prepend(image);
+        `<img class="card-img-top rounded" src="${secondValeur.imageUrl}" alt="photo de la caméra" >`; 
+        image_parent.prepend(image); //'prepend' ajoute le nouvel élement avant les autres
     let image_title = document.querySelector('.card-title');
         image_title.innerHTML=`${secondValeur.name}`;
 
+    //generation automatique du bon nombre d'option disponible
     let lens= document.querySelector('#lenses');
         for (let i=0; i<secondValeur.lenses.length; i++){
           let lensName=document.createElement('option');
@@ -24,7 +25,7 @@ let envoyerPanier=document.querySelector('button.btn');
               lensName.innerHTML=`${secondValeur.lenses[i]}`;
           lens.appendChild(lensName);
         }
-
+//Demander confirmation avant d'ajouter l'option choisie au tableau des options
     let listenOptions =document.querySelector('#lenses');
     let selectedLenses=[];
           listenOptions.addEventListener('change', function(event){
@@ -36,17 +37,17 @@ let envoyerPanier=document.querySelector('button.btn');
             alert('Option non ajoutée');
           }
         });
-             
+  //objet contenant le produit sélectionné et son prix          
         let selectedItem={
           produit:`${secondValeur.name}`,
           prix:`${secondValeur.price/100}`
         };
-
+//au click, on mettra plusieurs élements dans le localStorage
     envoyerPanier.addEventListener('click', function(){
       
       let selectedLensesTab= JSON.parse(localStorage.getItem("selectedLensesTab"));
       if(selectedLensesTab){
-        selectedLensesTab.push(selectedLenses);
+        selectedLensesTab.push(selectedLenses);//tableau des options
         localStorage.setItem("selectedLensesTab", JSON.stringify(selectedLensesTab));
       }
     else{
@@ -57,7 +58,7 @@ let envoyerPanier=document.querySelector('button.btn');
 
      let selectedItemTab= JSON.parse(localStorage.getItem("selectedItemTab"));
       if(selectedItemTab){
-        selectedItemTab.push(selectedItem);
+        selectedItemTab.push(selectedItem); //produit sélectionné et son prix
         localStorage.setItem("selectedItemTab",JSON.stringify(selectedItemTab));
       }
       else{
@@ -68,17 +69,17 @@ let envoyerPanier=document.querySelector('button.btn');
 
       let productIdTab= JSON.parse(localStorage.getItem("productIdTab"));
       if(productIdTab){
-        productIdTab.push(id_produit);
+        productIdTab.push(id_produit);//tableau de l'id des produits sélectionnés
         localStorage.setItem("productIdTab", JSON.stringify(productIdTab));
       }
     else{
         productIdTab=[];
         productIdTab.push(id_produit);
-          localStorage.setItem("productIdTab", JSON.stringify(productIdTab));
+        localStorage.setItem("productIdTab", JSON.stringify(productIdTab));
     } 
     })     
     
   })
 .catch(function(secondError){
-  console.log(secondError);
+  console.log(secondError); //récupère et affiche une éventuelle erreur
 })

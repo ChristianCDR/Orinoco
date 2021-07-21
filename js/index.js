@@ -1,4 +1,4 @@
-fetch("http://localhost:3000/api/cameras") //requête à l'api
+fetch("http://localhost:3000/api/cameras")
   .then(function(resultat){ //un .then pour récuperer le résultat
     if (resultat.ok){
       return resultat.json(); //on récupère le resultat que l'on convertit au format json
@@ -9,7 +9,9 @@ fetch("http://localhost:3000/api/cameras") //requête à l'api
     for(let i=0; i< valeur.length; i++ ){
       let camera_actuelle = valeur[i]; // camera_actuelle contiendra tour à tour les attributs de chaque caméra
       let price=camera_actuelle.price/100; // conversion des centimes en dollars
-      //console.log(camera_actuelle);
+
+//création d'une nouvelle div à chaque boucle pour contenir chaque image envoyée par le backend
+//la balise 'a' contient un lien dynamique qui charge la bonne page grâce à l'id
       let newItem= document.createElement('div');
          newItem.classList.add("col-12", "col-md-6","col-lg-4");
          newItem.innerHTML=`<div class="card bg-secondary div__img">
@@ -30,6 +32,6 @@ fetch("http://localhost:3000/api/cameras") //requête à l'api
 
   })
   .catch(function(error){
-    console.log(error);
+    console.log(error); //fonction qui récupère et affiche l'erreur dans la console s'il y en a une.
   })
 
