@@ -10814,7 +10814,7 @@ main {
 main p, main span {
   font-size: 1.5em;
 }
-main button {
+main a {
   width: 40%;
   margin: 0 auto;
 }
