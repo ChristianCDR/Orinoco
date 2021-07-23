@@ -14,15 +14,16 @@ main{
   flex-direction: row;
   justify-content: space-around;
   .row{
-    height: 500px;
     border:3px solid $gray-600;
     margin: 15px;
     word-wrap: break-word;
   }
   form, .recap{
     flex-direction: column;
-    height: 490px;
     justify-content: space-around;
+  }
+  form{
+    height: 500px;
   }
   h1, h2{
     font-size: 1.2em;
