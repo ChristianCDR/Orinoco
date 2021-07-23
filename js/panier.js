@@ -94,9 +94,8 @@ let submitButton=document.querySelector('.submit');
         console.log(error); //récupère et affiche les erreurs
       })      
   });
-//plan de test/commentaires
-//correction de la mise en page,
 //pwp,
+//correction de la mise en page,
 //longueur noms/prenoms 
  
 

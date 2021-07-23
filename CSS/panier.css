@@ -10841,7 +10841,7 @@ main td, main th {
     flex-direction: column;
   }
   main .row {
-    width: 95%;
+    min-width: 95%;
     margin: 15px auto;
   }
 }

@@ -40,7 +40,7 @@ main{
   main{
     flex-direction: column;
     .row{
-      width: 95%;
+      min-width: 95%;
       margin: 15px auto;
     }
   }
