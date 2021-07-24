@@ -64,16 +64,7 @@ let codePostalCheck= document.getElementsByName('codePostal');
 let submitButton=document.querySelector('.submit');
     submitButton.addEventListener('click',function(event){
       event.preventDefault(); //annihiler le comportement par defaut du submitButton
-      let codePostal= JSON.parse(localStorage.getItem("codePostal"));
-      if(/^[0-9]{5}$/.test(codePostal)){ //vérification du codePostal par regex
-        request[4].value=codePostal;
-      } 
-      else{
-        //envoi d'une alerte lorsque le codePostal ne satisfait pas
-        alert('Le code postal doit être composé de 5 chiffres!');
-        event.preventDefault();
-      }
-
+      
       fetch('http://localhost:3000/api/cameras/order', {
       method: 'POST',
       headers: { 
@@ -87,8 +78,18 @@ let submitButton=document.querySelector('.submit');
         }
       }).then(res=>{
               contenu=res.orderId; //contenu contient l'orderId envoyé par le serveur
-              let currentAddress= window.location.search.slice(1);
-              window.location= `confirmation.html?${contenu}`; //Modification de l'url à charger lors du clic
+              let codePostal= JSON.parse(localStorage.getItem("codePostal"));
+              if(/^[0-9]{5}$/.test(codePostal)){ //vérification du codePostal par regex
+                request[4].value=codePostal;
+                let currentAddress= window.location.search.slice(1);
+                window.location= `confirmation.html?${contenu}`; //Modification de l'url à charger lors du clic
+              } 
+              else{
+                //envoi d'une alerte lorsque le codePostal ne satisfait pas
+                alert('Le code postal doit être composé de 5 chiffres!');
+                event.preventDefault();
+              }
+              
       })
       .catch(error=>{
         console.log(error); //récupère et affiche les erreurs
